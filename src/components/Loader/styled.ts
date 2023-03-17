@@ -6,7 +6,11 @@ export const StyledLoaderWrapper = styled.div<any>`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: ${(props) => props.wrapperHeight}px;
+    span {
+        margin-top: 15px;
+    }
 `
 export const StyledLoader = styled.div `
     border: 5px solid #E7E9EB;

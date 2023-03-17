@@ -13,7 +13,7 @@ const Home = () => {
         <StyledContentWrapper>
           <StyledBackBtn><span>Popular List</span></StyledBackBtn>
           <StyledContentHeading>Popular Movies</StyledContentHeading>
-          <Loader />
+          <Loader label="Loading Popular Movies" />
           <MovieList />
         </StyledContentWrapper>
     </StyledHomeWrapper>
