@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledHomeWrapper, StyledContentWrapper, StyledContentHeading } from './styled'
+import { StyledHomeWrapper, StyledContentWrapper, StyledContentHeading, StyledBackBtn} from './styled'
 
 import Header from '../Header';
 import MovieList from '../../components/MovieList'
@@ -11,9 +11,10 @@ const Home = () => {
     <StyledHomeWrapper>
         <Header />
         <StyledContentWrapper>
-            <StyledContentHeading>Popular Movies</StyledContentHeading>
-            <Loader />
-            <MovieList />
+          <StyledBackBtn><span>Popular List</span></StyledBackBtn>
+          <StyledContentHeading>Popular Movies</StyledContentHeading>
+          <Loader />
+          <MovieList />
         </StyledContentWrapper>
     </StyledHomeWrapper>
   );

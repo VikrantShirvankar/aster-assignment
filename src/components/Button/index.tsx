@@ -4,6 +4,8 @@ import { PRIMARY_COLOR } from '../../styled.constant'
 
 interface TextInputProps {
     buttonClassName?: string
+    onBtnClick: () => void
+    disabled?: boolean
 }
 
 const StyledButton = styled.button`
@@ -16,12 +18,17 @@ const StyledButton = styled.button`
     padding: 0 10px;
     background: #f84464;
     cursor: pointer;
+    &:disabled {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+    }
 `;
 
 const Button = (props: TextInputProps) => {
-    const { buttonClassName } = props
+    const { buttonClassName, onBtnClick, disabled } = props
     return (
-        <StyledButton className={buttonClassName}>
+        <StyledButton className={buttonClassName} onClick={onBtnClick} disabled={disabled}>
             Search
         </StyledButton>
     )
