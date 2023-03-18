@@ -19,7 +19,7 @@ import {
   const HomeReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case GET_MOVIE_LIST: {
-            state = { ...state, movieList: [], loadingMovieList: true, error: '' };
+            state = { ...state, loadingMovieList: true, error: '' };
             break;
         }
         case GET_MOVIE_LIST_SUCCESS: {

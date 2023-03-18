@@ -48,7 +48,7 @@ const Home = () => {
             {isSearchScreen ? 'Search Results' : 'Popular Movies'}
           </StyledContentHeading>
           {loadingMovieList && <Loader label="Loading Movies List ..." wrapperHeight={300}/>}
-          <MovieList movieList={movieList} error={error} isLoading={loadingMovieList} />
+          {!loadingMovieList && <MovieList movieList={movieList} error={error} />}
         </StyledContentWrapper>
     </StyledHomeWrapper>
   );

@@ -21,7 +21,6 @@ const StyledErrorMessage = styled.div `
 interface MovieListProps {
     movieList: [];
     error: string;
-    isLoading: boolean;
 }
 
 const ErrorMessage = ({ error }: { error: string }) => {
@@ -33,10 +32,10 @@ const ErrorMessage = ({ error }: { error: string }) => {
 }
 
 const MovieList = (props: MovieListProps) => {
-    const { movieList, error, isLoading } = props
-    
+    const { movieList, error } = props
+
     // Show message when no data or error
-    if (!isLoading && (!movieList?.length || error)) {
+    if (!movieList?.length || error) {
         return <ErrorMessage error={error} />
     }
     
