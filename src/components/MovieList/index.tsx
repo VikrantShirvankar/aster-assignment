@@ -14,16 +14,17 @@ const StyledListWrapper = styled.ul `
         justify-content: center;
     }
 `
+interface MovieListProps {
+    movieList: []
+}
 
-const MovieList = () => {
+const MovieList = (props: MovieListProps) => {
+    const { movieList } = props
     return (
         <StyledListWrapper>
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
+            {
+                movieList.map((movie) => (<MovieCard movieData={movie} />))
+            }
         </StyledListWrapper>
     )
 };

@@ -9,12 +9,15 @@ import {
     StyledCardDescription
 } from './styled'
 
-const MovieCard = () => {
+const MovieCard = (props: { movieData: {
+    poster_path: string
+}}) => {
+    const { movieData: { poster_path } } = props
     return (
         <StyledCardWrapper>
             <StyledCard>
                 <StyledCardPoster>
-                    <img src="https://picsum.photos/500/300/?image=10" alt="" />
+                    <img src={`https://image.tmdb.org/t/p/original` + poster_path} alt="" />
                 </StyledCardPoster>
                 <StyledCardContent>
                     <StyledCardTitle>Card Grid Layout</StyledCardTitle>
