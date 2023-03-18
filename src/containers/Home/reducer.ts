@@ -4,7 +4,7 @@ import {
     GET_MOVIE_LIST_FAIL
   } from "./actionTypes";
   
-  interface initialState {
+  interface initialStateInterface {
     movieList: []
     loadingMovieList: boolean;
     error: string
@@ -19,16 +19,16 @@ import {
   const HomeReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case GET_MOVIE_LIST: {
-            state = { ...state, loadingMovieList: true, error: '' };
+            state = { ...state, movieList: [], loadingMovieList: true, error: '' };
             break;
         }
         case GET_MOVIE_LIST_SUCCESS: {
             const { results } = action.payload
-            state = { ...state, movieList: [...results], loadingMovieList: false, error: '' } as initialState;
+            state = { ...state, movieList: [...results], loadingMovieList: false, error: '' } as initialStateInterface;
             break;
         }
         case GET_MOVIE_LIST_FAIL: {
-            state = { ...state, loadingMovieList: false, error: 'Error loading movie data' } as initialState;;
+            state = { ...state, loadingMovieList: false, error: 'Error loading movie data' } as initialStateInterface;;
             break;
         }
         default: {

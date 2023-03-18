@@ -1,4 +1,4 @@
-import { takeLatest, put, call, all } from "redux-saga/effects";
+import { takeLatest, put, call } from "redux-saga/effects";
 
 import { GET_MOVIE_LIST } from "./actionTypes";
 

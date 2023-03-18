@@ -42,7 +42,7 @@ const MovieList = (props: MovieListProps) => {
     
     return (
         <StyledListWrapper>
-            {movieList.map((movie) => (<MovieCard movieData={movie} />))}
+            {movieList.map((movie: any) => (<MovieCard key={movie.id} movieData={movie} />))}
         </StyledListWrapper>
     )
 };

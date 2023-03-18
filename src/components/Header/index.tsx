@@ -6,12 +6,18 @@ import { StyledHeaderWrapper } from './styled'
 
 interface HeaderProps {
     searchInputValue: string;
+    disabledSearchButton: boolean;
     onSearchInputValueChange: (text: string) => void
     searchBtnClickHandler: () => void;
 }
 
 const Header = (props: HeaderProps) => {
-    const { searchBtnClickHandler, onSearchInputValueChange, searchInputValue  } = props
+    const { 
+        searchInputValue,
+        disabledSearchButton,
+        searchBtnClickHandler,
+        onSearchInputValueChange
+    } = props
 
     return (
         <StyledHeaderWrapper>
@@ -21,7 +27,12 @@ const Header = (props: HeaderProps) => {
                 value={searchInputValue}
                 onTextChange={(text) => onSearchInputValueChange(text)}
             />
-            <Button label="Search" buttonClassName="search-button" onBtnClick={() => searchBtnClickHandler()} />
+            <Button 
+                label="Search"
+                disabled={disabledSearchButton}
+                buttonClassName="search-button" 
+                onBtnClick={() => searchBtnClickHandler()}
+            />
         </StyledHeaderWrapper>
     )
 }

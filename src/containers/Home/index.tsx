@@ -38,6 +38,7 @@ const Home = () => {
           searchInputValue={searchInputValue} 
           onSearchInputValueChange={setSearchInputValue} 
           searchBtnClickHandler={searchClickHandler}
+          disabledSearchButton={loadingMovieList}
         />
         <StyledContentWrapper>
           <StyledBackBtn>
@@ -46,7 +47,7 @@ const Home = () => {
           <StyledContentHeading>
             {isSearchScreen ? 'Search Results' : 'Popular Movies'}
           </StyledContentHeading>
-          {loadingMovieList && <Loader label="Loading Movies List ..." />}
+          {loadingMovieList && <Loader label="Loading Movies List ..." wrapperHeight={300}/>}
           <MovieList movieList={movieList} error={error} isLoading={loadingMovieList} />
         </StyledContentWrapper>
     </StyledHomeWrapper>
