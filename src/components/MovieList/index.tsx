@@ -34,7 +34,7 @@ const ErrorMessage = ({ error }: { error: string }) => {
 
 const MovieList = (props: MovieListProps) => {
     const { movieList, error, isLoading } = props
-
+    
     // Show message when no data or error
     if (!isLoading && (!movieList?.length || error)) {
         return <ErrorMessage error={error} />
@@ -47,4 +47,4 @@ const MovieList = (props: MovieListProps) => {
     )
 };
 
-export default MovieList;
+export default React.memo(MovieList);
