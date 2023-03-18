@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
-import { PRIMARY_COLOR } from '../../styled.constant'
+import { PRIMARY_COLOR } from '../../constants/styled.constant'
 
 interface TextInputProps {
-    buttonClassName?: string
-    onBtnClick: () => void
-    disabled?: boolean
+    buttonClassName?: string;
+    disabled?: boolean;
+    label: string;
+    onBtnClick: () => void;
 }
 
 const StyledButton = styled.button`
@@ -26,10 +27,10 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props: TextInputProps) => {
-    const { buttonClassName, onBtnClick, disabled } = props
+    const { buttonClassName, disabled, label, onBtnClick } = props
     return (
         <StyledButton className={buttonClassName} onClick={onBtnClick} disabled={disabled}>
-            Search
+            {label}
         </StyledButton>
     )
 }

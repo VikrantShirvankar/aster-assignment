@@ -1,32 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getPopularMovies } from "./actions";
+import { getMovieList } from "./actions";
 
 import { StyledHomeWrapper, StyledContentWrapper, StyledContentHeading, StyledBackBtn} from './styled'
 
-import Header from '../Header';
+import Header from '../../components/Header';
 import MovieList from '../../components/MovieList'
 import Loader from '../../components/Loader';
 
 const Home = () => {
+  const [searchInputValue, setSearchInputValue] = useState('')
+  const [isSearchScreen, setIsSearchScreen] = useState(false)
   const dispatch = useDispatch();
 
-  const { popularMovies, loadingPopularMovies } = useSelector(
+  const { loadingMovieList, movieList, error } = useSelector(
     (state: any) => state.home
   );
 
   useEffect(() => {
-    dispatch(getPopularMovies());
+    dispatch(getMovieList());
   }, [dispatch])
+
+  const searchClickHandler = () => {
+    dispatch(getMovieList(searchInputValue));
+    setIsSearchScreen(true)
+  }
+
+  const popularSearcLinkClick = () => {
+    dispatch(getMovieList())
+    setIsSearchScreen(false)
+    setSearchInputValue('')
+  }
 
   return (
     <StyledHomeWrapper>
-        <Header />
+        <Header 
+          searchInputValue={searchInputValue} 
+          onSearchInputValueChange={setSearchInputValue} 
+          searchBtnClickHandler={searchClickHandler}
+        />
         <StyledContentWrapper>
-          <StyledBackBtn><span>Popular List</span></StyledBackBtn>
-          <StyledContentHeading>Popular Movies</StyledContentHeading>
-          {loadingPopularMovies && <Loader label="Loading Popular Movies" />}
-          <MovieList movieList={popularMovies} />
+          <StyledBackBtn>
+            {isSearchScreen && <span onClick={popularSearcLinkClick}>Popular List</span>}
+          </StyledBackBtn>
+          <StyledContentHeading>
+            {isSearchScreen ? 'Search Results' : 'Popular Movies'}
+          </StyledContentHeading>
+          {loadingMovieList && <Loader label="Loading Movies List ..." />}
+          <MovieList movieList={movieList} error={error} isLoading={loadingMovieList} />
         </StyledContentWrapper>
     </StyledHomeWrapper>
   );

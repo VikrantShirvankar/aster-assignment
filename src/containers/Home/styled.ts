@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { PRIMARY_COLOR } from '../../styled.constant'
+import { PRIMARY_COLOR } from '../../constants/styled.constant'
 
 export const StyledHomeWrapper = styled.div `
     margin: 0;

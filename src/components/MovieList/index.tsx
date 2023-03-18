@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 import MovieCard from '../MovieCard';
-import { SCREEN_BREAK_POINTS } from '../../styled.constant'
+import { SCREEN_BREAK_POINTS } from '../../constants/styled.constant'
 
 const StyledListWrapper = styled.ul `
     display: flex;
@@ -14,17 +14,35 @@ const StyledListWrapper = styled.ul `
         justify-content: center;
     }
 `
+const StyledErrorMessage = styled.div `
+    margin-left: 16px;
+    margin-top: 16px;
+`
 interface MovieListProps {
-    movieList: []
+    movieList: [];
+    error: string;
+    isLoading: boolean;
+}
+
+const ErrorMessage = ({ error }: { error: string }) => {
+    return (
+        <StyledErrorMessage>
+           {error || 'No matching movies found'}
+        </StyledErrorMessage>
+    )
 }
 
 const MovieList = (props: MovieListProps) => {
-    const { movieList } = props
+    const { movieList, error, isLoading } = props
+
+    // Show message when no data or error
+    if (!isLoading && (!movieList?.length || error)) {
+        return <ErrorMessage error={error} />
+    }
+    
     return (
         <StyledListWrapper>
-            {
-                movieList.map((movie) => (<MovieCard movieData={movie} />))
-            }
+            {movieList.map((movie) => (<MovieCard movieData={movie} />))}
         </StyledListWrapper>
     )
 };

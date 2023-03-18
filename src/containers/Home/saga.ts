@@ -1,35 +1,20 @@
 import { takeLatest, put, call, all } from "redux-saga/effects";
 
-import { GET_POPULAR_MOVIES, SEARCH_MOVIES } from "./actionTypes";
+import { GET_MOVIE_LIST } from "./actionTypes";
 
-import {
-  getPopularMoviesSuccess,
-  getPopularMoviesFail,
-} from "./actions";
+import { getMovieListSuccess, getMovieListFail } from "./actions";
 
-import { getPopularMovies, searchMovies } from "../../helper/apis";
+import { getMovieList } from "../../helper/apis";
 
-function* onGetPopularMovies(): any {
+function* onGetMovieList({ payload }: any): any {
     try {
-        const response = yield call(getPopularMovies);
-        yield put(getPopularMoviesSuccess(response));
+        const response = yield call(getMovieList, payload.keyword);
+        yield put(getMovieListSuccess(response));
     } catch (error: any) {
-        yield put(getPopularMoviesFail(error.response));
-    }
-}
-
-function* onSearchMovies(payload: any): any {
-    const { keyword } = payload
-    try {
-      const response = yield call(searchMovies(keyword));
-      console.log('response >>', response)
-      yield put(getPopularMoviesSuccess(response));
-    } catch (error: any) {
-      yield put(getPopularMoviesFail(error.response));
+        yield put(getMovieListFail(error.response));
     }
 }
 
 export default function* watchAll() {
-    yield takeLatest(GET_POPULAR_MOVIES, onGetPopularMovies)
-    yield takeLatest(SEARCH_MOVIES, onSearchMovies)
+    yield takeLatest(GET_MOVIE_LIST, onGetMovieList)
 }

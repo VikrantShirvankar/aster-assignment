@@ -1,46 +1,40 @@
 import {
-    GET_POPULAR_MOVIES,
-    GET_POPULAR_MOVIES_SUCCESS,
-    GET_POPULAR_MOVIES_FAIL,
+    GET_MOVIE_LIST,
+    GET_MOVIE_LIST_SUCCESS,
+    GET_MOVIE_LIST_FAIL
   } from "./actionTypes";
   
-  interface initial {
-    popularMovies: [];
-    page: number;
-    totalPages: number;
-    loadingPopularMovies: boolean;
+  interface initialState {
+    movieList: []
+    loadingMovieList: boolean;
+    error: string
   }
 
   const initialState = {
-    popularMovies: [],
-    page: 1,
-    totalPages: 1,
-    loadingPopularMovies: false,
+    movieList: [],
+    loadingMovieList: false,
+    error: ''
   };
   
   const HomeReducer = (state = initialState, action: any) => {
     switch (action.type) {
-      case GET_POPULAR_MOVIES:
-        state = { ...state, loadingPopularMovies: true };
-        break;
-      case GET_POPULAR_MOVIES_SUCCESS:
-        const { results, page, total_pages } = action.payload
-        state = { ...state,
-            popularMovies: [...state.popularMovies, ...results],
-            loadingPopularMovies: false,
-            page,
-            totalPages: total_pages
-        } as initial;
-        break;
-      case GET_POPULAR_MOVIES_FAIL:
-        state = {
-          ...state,
-          loadingPopularMovies: false,
-        } as initial;;
-        break;
-      default:
-        state = { ...state };
-        break;
+        case GET_MOVIE_LIST: {
+            state = { ...state, loadingMovieList: true, error: '' };
+            break;
+        }
+        case GET_MOVIE_LIST_SUCCESS: {
+            const { results } = action.payload
+            state = { ...state, movieList: [...results], loadingMovieList: false, error: '' } as initialState;
+            break;
+        }
+        case GET_MOVIE_LIST_FAIL: {
+            state = { ...state, loadingMovieList: false, error: 'Error loading movie data' } as initialState;;
+            break;
+        }
+        default: {
+            state = { ...state };
+            break;
+        }
     }
     return state;
   };

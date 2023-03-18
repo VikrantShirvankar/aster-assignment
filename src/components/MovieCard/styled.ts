@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { PRIMARY_COLOR, SCREEN_BREAK_POINTS } from '../../styled.constant'
+import { PRIMARY_COLOR, SCREEN_BREAK_POINTS } from '../../constants/styled.constant'
 
 export const StyledCardWrapper = styled.li `
     display: flex;
@@ -45,4 +45,8 @@ export const StyledCardDescription = styled.p `
     line-height: 1.5;
     margin-bottom: 20px;    
     font-weight: 400;
+`
+
+export const StyledCardTitleWrapper = styled.div `
+    height: 50px;
 `

@@ -1,53 +1,29 @@
 import { 
-    GET_POPULAR_MOVIES,
-    GET_POPULAR_MOVIES_SUCCESS,
-    GET_POPULAR_MOVIES_FAIL,
-    SEARCH_MOVIES,
-    SEARCH_MOVIES_SUCCESS,
-    SEARCH_MOVIES_FAIL
+    GET_MOVIE_LIST,
+    GET_MOVIE_LIST_SUCCESS,
+    GET_MOVIE_LIST_FAIL
 } from "./actionTypes";
 
 
-export const getPopularMovies = () => {
+export const getMovieList = (keyWord?: string) => {
     return {
-        type: GET_POPULAR_MOVIES,
-    };
-};
-  
-export const getPopularMoviesSuccess = (popularMovies: any) => {
-    return {
-        type: GET_POPULAR_MOVIES_SUCCESS,
-        payload: popularMovies,
-    };
-};
-  
-export const getPopularMoviesFail = (error: any) => {
-    return {
-        type: GET_POPULAR_MOVIES_FAIL,
-        payload: error,
-    };
-};
-
-
-export const searchMovies = (keyword: string) => {
-    return {
-        type: SEARCH_MOVIES,
+        type: GET_MOVIE_LIST,
         payload: {
-            keyword
+            keyword: keyWord
         }
     };
 };
   
-export const searchMoviesSuccess = (searchResult: any) => {
+export const getMovieListSuccess = (movieList: any) => {
     return {
-        type: SEARCH_MOVIES_SUCCESS,
-        payload: searchResult,
+        type: GET_MOVIE_LIST_SUCCESS,
+        payload: movieList,
     };
 };
   
-export const searchMoviesFail = (error: any) => {
+export const getMovieListFail = (error: string) => {
     return {
-        type: SEARCH_MOVIES_FAIL,
+        type: GET_MOVIE_LIST_FAIL,
         payload: error,
     };
 };
