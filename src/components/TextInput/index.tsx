@@ -1,12 +1,12 @@
 import React from 'react';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 interface TextInputProps {
-    inputClassName?: string
-    value?: string
-    placeholder?: string
-    onTextChange: (text: string) => void
+    inputClassName?: string;
+    value?: string;
+    placeholder?: string;
+    onTextChange: (text: string) => void;
 }
 
 const StyledTextInput = styled.input`
@@ -23,7 +23,7 @@ const StyledTextInput = styled.input`
 `;
 
 const TextInput = (props: TextInputProps) => {
-    const { inputClassName, value, placeholder, onTextChange } = props
+    const { inputClassName, value, placeholder, onTextChange } = props;
     return (
         <StyledTextInput 
             placeholder={placeholder}

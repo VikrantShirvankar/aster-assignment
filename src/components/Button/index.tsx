@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
-import { PRIMARY_COLOR } from '../../constants/styled.constant'
+import styled from 'styled-components';
+import { PRIMARY_COLOR } from '../../constants/styled.constant';
 
 interface TextInputProps {
     buttonClassName?: string;
@@ -27,7 +27,7 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props: TextInputProps) => {
-    const { buttonClassName, disabled, label, onBtnClick } = props
+    const { buttonClassName, disabled, label, onBtnClick } = props;
     return (
         <StyledButton className={buttonClassName} onClick={onBtnClick} disabled={disabled}>
             {label}
@@ -35,4 +35,4 @@ const Button = (props: TextInputProps) => {
     )
 }
 
-export default Button
+export default Button;

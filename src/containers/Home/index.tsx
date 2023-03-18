@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieList } from "./actions";
 
-import { StyledHomeWrapper, StyledContentWrapper, StyledContentHeading, StyledBackBtn} from './styled'
+import { StyledHomeWrapper, StyledContentWrapper, StyledContentHeading, StyledBackBtn} from './styled';
 
 import Header from '../../components/Header';
-import MovieList from '../../components/MovieList'
+import MovieList from '../../components/MovieList';
 import Loader from '../../components/Loader';
 
 const Home = () => {
-  const [searchInputValue, setSearchInputValue] = useState('')
-  const [isSearchScreen, setIsSearchScreen] = useState(false)
+  const [searchInputValue, setSearchInputValue] = useState('');
+  const [isSearchScreen, setIsSearchScreen] = useState(false);
   const dispatch = useDispatch();
 
   const { loadingMovieList, movieList, error } = useSelector(

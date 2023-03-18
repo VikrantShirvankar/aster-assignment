@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { SCREEN_BREAK_POINTS } from '../../constants/styled.constant'
+import styled from 'styled-components';
+import { SCREEN_BREAK_POINTS } from '../../constants/styled.constant';
 
 export const StyledHeaderWrapper = styled.div`
     min-height: 80px;

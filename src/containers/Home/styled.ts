@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { PRIMARY_COLOR } from '../../constants/styled.constant'
+import { PRIMARY_COLOR } from '../../constants/styled.constant';
 
 export const StyledHomeWrapper = styled.div `
     margin: 0;
@@ -17,7 +17,7 @@ export const StyledContentHeading = styled.div `
     font-weight: 700;
     margin-left: 16px;
     margin-top: 10px;
-`
+`;
 
 export const StyledBackBtn = styled.div `
     font-size: 14px;
@@ -27,4 +27,4 @@ export const StyledBackBtn = styled.div `
     cursor: pointer;
     color: ${PRIMARY_COLOR};
     text-decoration: underline;
-`
+`;

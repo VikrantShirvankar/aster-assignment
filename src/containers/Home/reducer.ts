@@ -5,9 +5,9 @@ import {
   } from "./actionTypes";
   
   interface initialStateInterface {
-    movieList: []
+    movieList: [];
     loadingMovieList: boolean;
-    error: string
+    error: string;
   }
 
   const initialState = {

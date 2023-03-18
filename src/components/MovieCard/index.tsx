@@ -10,14 +10,14 @@ import {
     StyledCardTitle, 
     StyledCardDescription,
     StyledCardTitleWrapper
-} from './styled'
+} from './styled';
 
 const MovieCard = (props: { movieData: {
     poster_path: string
     title: string
     release_date: string
 }}) => {
-    const { movieData: { poster_path, title, release_date } } = props
+    const { movieData: { poster_path, title, release_date } } = props;
 
     // TODO: Implement no image logic and styling and then remove below condition
     if (!poster_path) {
@@ -41,4 +41,4 @@ const MovieCard = (props: { movieData: {
     )
 }
 
-export default MovieCard
+export default MovieCard;

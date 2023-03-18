@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import TextInput from '../TextInput';
 import Button from '../Button';
@@ -17,7 +17,7 @@ const Header = (props: HeaderProps) => {
         disabledSearchButton,
         searchBtnClickHandler,
         onSearchInputValueChange
-    } = props
+    } = props;
 
     return (
         <StyledHeaderWrapper>

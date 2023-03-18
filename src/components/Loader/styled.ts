@@ -11,7 +11,8 @@ export const StyledLoaderWrapper = styled.div<any>`
     span {
         margin-top: 15px;
     }
-`
+`;
+
 export const StyledLoader = styled.div `
     border: 5px solid #E7E9EB;
     border-radius: 50%;
@@ -24,4 +25,4 @@ export const StyledLoader = styled.div `
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-`
+`;
